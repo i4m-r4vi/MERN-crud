@@ -9,7 +9,6 @@ import LoadingSpinner from './components/LoadingSpinner'
 const App = () => {
   return (
     <div>
-
     </div>
   )
 }

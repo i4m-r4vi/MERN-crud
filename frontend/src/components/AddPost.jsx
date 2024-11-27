@@ -11,6 +11,7 @@ import { useNavigate } from "react-router";
 const AddPost = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const message = "Successfully Added"
   const link = useNavigate();
 
   const titleSet = (e) => {
@@ -31,7 +32,7 @@ const AddPost = () => {
           description: description,
         })
         .then(() => {
-          link("/");
+          link("/",{state:message});
         });
     } catch {
       console.log("Something Error Occured");
@@ -72,13 +73,14 @@ const AddPost = () => {
             <Button type="submit" className="mx-3" onClick={submitPost}>
               Create
             </Button>
-            <Button variant="primary" disabled>
+            <Button variant="primary" disabled hidden>
               <Spinner
                 as="span"
                 animation="grow"
                 size="sm"
                 role="status"
                 aria-hidden="true"
+                
               />
               Loading...
             </Button>

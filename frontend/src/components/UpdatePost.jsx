@@ -14,10 +14,12 @@ const UpdatePost = () => {
   const [title , setTitle] = useState('')
   const [description , setDescription] = useState('')
   const link = useNavigate()
+  const message = "Successfully Added"
 
   const titleSet = (e)=>{
     setTitle(e.target.value)
   }
+
   const descriptionSet = (e)=>{
     setDescription(e.target.value)
   }
@@ -30,8 +32,6 @@ const UpdatePost = () => {
     }
     getPost()
   },[])
-
-
 
   const cancel = ()=>{
     return link('/')
@@ -48,12 +48,10 @@ const UpdatePost = () => {
       console.log('Something Error Occured');
     }
     finally{
-      link('/')
+      link('/',{state:message})
     }
     
   }
-
-
 
   return (
     <div>
