@@ -50,7 +50,7 @@ const ListPost = () => {
     const deleteAlert = window.confirm("Do You Want to Delete?");
     try {
       if (deleteAlert) {
-        await axios.delete(`https://post-api-hcne.onrender.com/api/deletepost/${id}`);
+        await axios.delete(`${process.env.BACKEND_URL}/api/deletepost/${id}`);
         setFetchData((prev) => !prev);
         setOpen(true);
       }

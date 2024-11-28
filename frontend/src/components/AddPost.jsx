@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import dotenv from 'dotenv'
 
 const AddPost = () => {
   const [title, setTitle] = useState("");
@@ -27,7 +28,7 @@ const AddPost = () => {
         alert("Want to Enter Both Data");
       }
       await axios
-        .post(`https://post-api-hcne.onrender.com/api/createpost/`, {
+        .post(`${process.env.BACKEND_URL}/api/createpost/`, {
           title: title,
           description: description,
         })
