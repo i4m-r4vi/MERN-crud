@@ -27,7 +27,7 @@ const AddPost = () => {
         alert("Want to Enter Both Data");
       }
       await axios
-        .post(`${process.env.BACKEND_URL}/api/createpost/`, {
+        .post(`${process.env.REACT_BACKEND_URL}/api/createpost/`, {
           title: title,
           description: description,
         })
