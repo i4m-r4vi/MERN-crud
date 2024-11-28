@@ -9,9 +9,8 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import dotenv from 'dotenv'
 
-dotenv.config()
-
 const AddPost = () => {
+  dotenv.config()
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const message = "Successfully Added"

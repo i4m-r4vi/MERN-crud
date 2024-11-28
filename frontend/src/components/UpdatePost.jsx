@@ -9,10 +9,10 @@ import { useParams,useNavigate } from "react-router";
 import axios from "axios";
 import dotenv from 'dotenv'
 
-dotenv.config()
+
 
 const UpdatePost = () => {
-
+  dotenv.config()
   const {id} = useParams()
   const [title , setTitle] = useState('')
   const [description , setDescription] = useState('')
