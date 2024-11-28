@@ -12,7 +12,7 @@ const AddPost = () => {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const message = "Successfully Added"
+  const message = "Successfully Inserted"
   const link = useNavigate();
 
   const titleSet = (e) => {
@@ -33,7 +33,7 @@ const AddPost = () => {
           description: description,
         })
         .then(() => {
-          link("/",{state:message});
+          link("/",{state:{inserted:true}});
         });
     } catch {
       console.log("Something Error Occured");

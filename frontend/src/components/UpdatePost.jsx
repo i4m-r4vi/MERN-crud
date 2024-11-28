@@ -15,7 +15,7 @@ const UpdatePost = () => {
   const [title , setTitle] = useState('')
   const [description , setDescription] = useState('')
   const link = useNavigate()
-  const message = "Successfully Added"
+  const message = "Successfully Updated"
 
   const titleSet = (e)=>{
     setTitle(e.target.value)
@@ -49,7 +49,7 @@ const UpdatePost = () => {
       console.log('Something Error Occured');
     }
     finally{
-      link('/',{state:message})
+      link('/',{state:{updated:true}})
     }
     
   }

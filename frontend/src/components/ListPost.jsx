@@ -6,7 +6,7 @@ import Button from "react-bootstrap/esm/Button";
 import { AiFillPlusCircle } from "react-icons/ai";
 import Container from "react-bootstrap/esm/Container";
 import axios from "axios";
-import { Link , useLocation ,useNavigate} from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
@@ -17,40 +17,42 @@ const ListPost = () => {
   const [openInsert, setOpenInsert] = useState(false);
   const [openUpdate, setOpenUpdate] = useState(false);
   const [openError, setOpenError] = useState(false);
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const arrayData = async () => {
       try {
-        const listPost = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/posts`);
+        const listPost = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/posts`
+        );
         setPost(listPost.data);
       } catch (error) {
-        setOpenError((prev)=>!prev)
+        setOpenError((prev) => !prev);
       }
     };
     arrayData();
   }, [fetchData]);
 
-  useEffect(()=>{
-    if(location.state){
-      setOpenInsert((prev)=>!prev)
+  useEffect(() => {
+    if (location.state) {
+      if (location.state.inserted) {
+        setOpenInsert(true);
+      }
+      if (location.state.updated) {
+        setOpenUpdate(true);
+      }
+      navigate("/", { replace: true });
     }
-    navigate('/',{replace:true})
-  },[location.state])
-
-  useEffect(()=>{
-    if(location.state){
-      setOpenUpdate((prev)=>!prev)
-    }
-    navigate('/',{replace:true})
-  },[location.state])
+  }, [location.state]);
 
   const deletepost = async (id) => {
     const deleteAlert = window.confirm("Do You Want to Delete?");
     try {
       if (deleteAlert) {
-        await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/deletepost/${id}`);
+        await axios.delete(
+          `${import.meta.env.VITE_BACKEND_URL}/api/deletepost/${id}`
+        );
         setFetchData((prev) => !prev);
         setOpen(true);
       }
@@ -66,7 +68,7 @@ const ListPost = () => {
     setOpen(false);
     setOpenInsert(false);
     setOpenUpdate(false);
-    setOpenError(false)
+    setOpenError(false);
   };
 
   return (
