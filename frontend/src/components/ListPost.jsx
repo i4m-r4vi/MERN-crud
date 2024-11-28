@@ -23,7 +23,7 @@ const ListPost = () => {
   useEffect(() => {
     const arrayData = async () => {
       try {
-        const listPost = await axios.get(`${process.env.VITE_BACKEND_URL}/api/posts`);
+        const listPost = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/posts`);
         setPost(listPost.data);
       } catch (error) {
         setOpenError((prev)=>!prev)
@@ -50,7 +50,7 @@ const ListPost = () => {
     const deleteAlert = window.confirm("Do You Want to Delete?");
     try {
       if (deleteAlert) {
-        await axios.delete(`${process.env.VITE_BACKEND_URL}/api/deletepost/${id}`);
+        await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/deletepost/${id}`);
         setFetchData((prev) => !prev);
         setOpen(true);
       }
