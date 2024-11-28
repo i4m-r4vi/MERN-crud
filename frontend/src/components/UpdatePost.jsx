@@ -27,7 +27,7 @@ const UpdatePost = () => {
 
   useEffect(()=>{
     const getPost = async ()=>{
-      const Post = await axios.get(`${process.env.REACT_BACKEND_URL}/api/post/${id}`);
+      const Post = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/post/${id}`);
       setTitle(Post.data.title)
       setDescription(Post.data.description)
     }
@@ -40,7 +40,7 @@ const UpdatePost = () => {
 
   const update = async (id)=>{
     try{
-      await axios.put(`${process.env.REACT_BACKEND_URL}/api/updatepost/${id}`,{
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/updatepost/${id}`,{
         title:title,
         description:description
       })
