@@ -23,7 +23,7 @@ const ListPost = () => {
   useEffect(() => {
     const arrayData = async () => {
       try {
-        const listPost = await axios.get("http://127.0.0.1:5000/api/posts");
+        const listPost = await axios.get("https://post-api-hcne.onrender.com/api/posts");
         setPost(listPost.data);
       } catch (error) {
         setOpenError((prev)=>!prev)
@@ -50,7 +50,7 @@ const ListPost = () => {
     const deleteAlert = window.confirm("Do You Want to Delete?");
     try {
       if (deleteAlert) {
-        await axios.delete(`http://127.0.0.1:5000/api/deletepost/${id}`);
+        await axios.delete(`https://post-api-hcne.onrender.com/api/deletepost/${id}`);
         setFetchData((prev) => !prev);
         setOpen(true);
       }

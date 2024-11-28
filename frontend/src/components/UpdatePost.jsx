@@ -26,7 +26,7 @@ const UpdatePost = () => {
 
   useEffect(()=>{
     const getPost = async ()=>{
-      const Post = await axios.get(`http://127.0.0.1:5000/api/post/${id}`);
+      const Post = await axios.get(`https://post-api-hcne.onrender.com/api/post/${id}`);
       setTitle(Post.data.title)
       setDescription(Post.data.description)
     }
@@ -39,7 +39,7 @@ const UpdatePost = () => {
 
   const update = async (id)=>{
     try{
-      await axios.put(`http://127.0.0.1:5000/api/updatepost/${id}`,{
+      await axios.put(`https://post-api-hcne.onrender.com/api/updatepost/${id}`,{
         title:title,
         description:description
       })

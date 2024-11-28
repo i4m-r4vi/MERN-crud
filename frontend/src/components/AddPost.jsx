@@ -27,7 +27,7 @@ const AddPost = () => {
         alert("Want to Enter Both Data");
       }
       await axios
-        .post(`http://127.0.0.1:5000/api/createpost/`, {
+        .post(`https://post-api-hcne.onrender.com/api/createpost/`, {
           title: title,
           description: description,
         })
