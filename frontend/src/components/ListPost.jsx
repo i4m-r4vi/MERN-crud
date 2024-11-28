@@ -9,10 +9,8 @@ import axios from "axios";
 import { Link , useLocation ,useNavigate} from "react-router";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
-import dotenv from 'dotenv'
 
 const ListPost = () => {
-  dotenv.config()
   const [post, setPost] = useState([]);
   const [fetchData, setFetchData] = useState(false);
   const [open, setOpen] = useState(false);

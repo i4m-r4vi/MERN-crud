@@ -7,12 +7,10 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useParams,useNavigate } from "react-router";
 import axios from "axios";
-import dotenv from 'dotenv'
 
 
 
 const UpdatePost = () => {
-  dotenv.config()
   const {id} = useParams()
   const [title , setTitle] = useState('')
   const [description , setDescription] = useState('')
