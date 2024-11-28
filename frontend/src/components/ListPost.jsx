@@ -23,7 +23,7 @@ const ListPost = () => {
   useEffect(() => {
     const arrayData = async () => {
       try {
-        const listPost = await axios.get(`${process.env.BACKEND_URL}api/posts`);
+        const listPost = await axios.get(`${process.env.BACKEND_URL}/api/posts`);
         setPost(listPost.data);
       } catch (error) {
         setOpenError((prev)=>!prev)
