@@ -7,6 +7,9 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { useParams,useNavigate } from "react-router";
 import axios from "axios";
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const UpdatePost = () => {
 

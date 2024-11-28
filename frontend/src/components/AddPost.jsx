@@ -9,6 +9,8 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import dotenv from 'dotenv'
 
+dotenv.config()
+
 const AddPost = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
